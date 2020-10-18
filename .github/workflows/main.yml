@@ -1,0 +1,27 @@
+name: Main
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '0 0 * * *'  # daily
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade setuptools pip wheel
+        python -m pip install -e .[dev]
+        python -m playwright install
+    - name: Check code style
+      run: invoke check
+    - name: Test
+      run: |
+        echo "${{ secrets.ENV }}" >> .env
+        pytest
