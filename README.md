@@ -1,28 +1,42 @@
 # Track Massachusetts Ballot
 
-TODO: Description
+Print ballot details from [Track My Ballot](https://www.sec.state.ma.us/wheredoivotema/track/trackmyballot.aspx).
 
 ## Installing
-
-TODO
-
-## Usage
-
-TODO
-
-## Developing
-
-Set up your development environment:
 
 - [Fork and clone](https://help.github.com/en/articles/fork-a-repo) this repository
 
 - Create and activate a [virtual environment](https://docs.python.org/3/tutorial/venv.html)
 
+- Install the package and its dependencies:
+
+    ```
+    $ python -m pip install -e .
+
+    $ python -m playwright install
+    ```
+
+- Copy `.env.sample` to `.env`, and fill in your name and address
+
+## Usage
+
+```
+$ python -m track_ma_ballot
+election   11/3/2020 State Election
+mailed     First: 10/13/2020
+received   Not returned
+status     Not returned
+```
+
+Run this daily until status changes. 😉
+
+## Developing
+
+Set up your development environment:
+
 - Install the packages required for development:
 
     ```
-    $ python -m pip install -U setuptools pip wheel
-
     $ python -m pip install -e .[dev]
     ```
 
