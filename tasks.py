@@ -24,4 +24,3 @@ def check(c):
     c.run(f"isort --check {FILES}")
     c.run(f"black --check {FILES}")
     c.run(f"flake8 {FILES}")
-    c.run(f"mypy {FILES}")
