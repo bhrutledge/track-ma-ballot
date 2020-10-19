@@ -1,8 +1,6 @@
 name: Main
 
 on:
-  push:
-  pull_request:
   schedule:
     - cron: '0 0 * * *'  # daily
 
@@ -19,8 +17,6 @@ jobs:
         python -m pip install --upgrade setuptools pip wheel
         python -m pip install -e .[dev]
         python -m playwright install
-    - name: Check code style
-      run: invoke check
     - name: Test
       run: |
         echo "${{ secrets.ENV }}" >> .env
