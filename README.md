@@ -30,7 +30,14 @@ received   Not returned
 status     Not returned
 ```
 
-Run this daily until the status changes. 😉
+Run this daily until the status changes:
+
+```
+election   11/3/2020 State Election
+mailed     First: 10/13/2020
+received   10/19/2020
+status     Accepted
+```
 
 ## Automated status checks
 
